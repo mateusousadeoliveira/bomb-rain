@@ -1,3 +1,3 @@
 GitHub oficial do jogo Bomb Rain, um jogo arcade em desenvolvimento feito por Mateus Sousa de Oliveira.
-![Texto Alternativo](screenshot.png)
+![Texto Alternativo](sprites/screenshot.png)
 
