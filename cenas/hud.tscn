@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://ctla6u83y8cj8"]
+
+[ext_resource type="FontFile" uid="uid://dddxs7mvh4f6g" path="res://sprites/hud/VCR_OSD_MONO_1.001.ttf" id="1_8alo0"]
+[ext_resource type="Script" uid="uid://ml3gtbrrj77u" path="res://scripts/keys_hud.gd" id="1_nkjil"]
+[ext_resource type="Script" uid="uid://b6jjvovy43dvm" path="res://scripts/completed.gd" id="3_jnuu4"]
+[ext_resource type="Texture2D" uid="uid://ryclygnsfak4" path="res://sprites/hud/Sprite-0001-Sheet.png" id="3_vbhdj"]
+[ext_resource type="Script" uid="uid://by71thwufgjtx" path="res://scripts/locked.gd" id="5_345sl"]
+[ext_resource type="Script" uid="uid://cygsh8gsxvdpf" path="res://scripts/completed_text.gd" id="6_345sl"]
+[ext_resource type="Script" uid="uid://b0ymxih1mhat0" path="res://scripts/container.gd" id="7_62m15"]
+[ext_resource type="Texture2D" uid="uid://hgrfpeuuspty" path="res://sprites/preto.png" id="8_osml6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfuea"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnuu4"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_345sl"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhlvs"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62m15"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osml6"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3ubg"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwk13"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1p7h"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yolvy"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oltbb"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcibt"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih056"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ykxb"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kak0p"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btk3a"]
+atlas = ExtResource("3_vbhdj")
+region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grdr0"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_jfuea")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_jnuu4")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_345sl")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_nhlvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62m15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osml6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3ubg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwk13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1p7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yolvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oltbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcibt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih056")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ykxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kak0p")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_btk3a")
+}],
+"loop": false,
+"name": &"locked",
+"speed": 20.0
+}]
+
+[node name="hud" type="CanvasLayer" unique_id=1132983409]
+
+[node name="Label" type="Label" parent="." unique_id=88348719]
+offset_left = 852.0
+offset_top = 35.0
+offset_right = 1096.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 100
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_8alo0")
+theme_override_font_sizes/font_size = 41
+text = "keys 0/0"
+script = ExtResource("1_nkjil")
+
+[node name="completed" type="VBoxContainer" parent="." unique_id=759117597]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -15.0
+offset_right = 87.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+alignment = 1
+script = ExtResource("3_jnuu4")
+
+[node name="locked" type="AnimatedSprite2D" parent="completed" unique_id=1052580252]
+position = Vector2(196, -74)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_grdr0")
+animation = &"locked"
+script = ExtResource("5_345sl")
+
+[node name="completed_text" type="Label" parent="completed" unique_id=1394704586]
+layout_mode = 2
+localize_numeral_system = false
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = -9
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("1_8alo0")
+theme_override_font_sizes/font_size = 33
+text = "Porta desbloqueada!"
+script = ExtResource("6_345sl")
+
+[node name="preto" type="Container" parent="." unique_id=795736093 groups=["preto"]]
+z_index = 2
+z_as_relative = false
+offset_left = -4.0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_62m15")
+
+[node name="Sprite2D" type="Sprite2D" parent="preto" unique_id=224956430]
+position = Vector2(545.00006, 305)
+scale = Vector2(50, 28.84375)
+texture = ExtResource("8_osml6")

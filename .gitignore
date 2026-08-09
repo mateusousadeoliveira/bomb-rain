@@ -1,0 +1,5 @@
+# Arquivos da Godot a serem ignorados
+.godot/
+.import/
+export_presets.cfg
+

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d1hxykeyxp4rp"]
+
+[ext_resource type="Texture2D" uid="uid://0wqrv5hyyqx4" path="res://sprites/player/player_run.png" id="1_0liil"]
+[ext_resource type="Script" uid="uid://bnul4d7xol40k" path="res://scripts/shader.gd" id="2_sippa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kthid"]
+atlas = ExtResource("1_0liil")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xojfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kthid")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ghost" type="AnimatedSprite2D" unique_id=2066054133]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xojfc")
+script = ExtResource("2_sippa")

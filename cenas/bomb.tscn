@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cchlkt0yvhf7e"]
+
+[ext_resource type="Texture2D" uid="uid://cuulrokqdxrff" path="res://sprites/bomb/bomb.png" id="1_j0wje"]
+[ext_resource type="Script" uid="uid://bgmyrk80l85c0" path="res://scripts/bomb.gd" id="1_y4v55"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4v55"]
+atlas = ExtResource("1_j0wje")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1cn6"]
+atlas = ExtResource("1_j0wje")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy27h"]
+atlas = ExtResource("1_j0wje")
+region = Rect2(0, 14, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0hxi"]
+atlas = ExtResource("1_j0wje")
+region = Rect2(16, 14, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56iqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4v55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1cn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy27h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0hxi")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6dpyn"]
+radius = 27.294687
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlmbt"]
+radius = 30.083218
+
+[node name="bomb" type="RigidBody2D" unique_id=1073375706]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_y4v55")
+
+[node name="animation" type="AnimatedSprite2D" parent="." unique_id=716575765]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_56iqn")
+animation = &"fall"
+autoplay = "fall"
+frame_progress = 0.14153433
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=232683644]
+position = Vector2(-10, 8)
+shape = SubResource("CircleShape2D_6dpyn")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1840902133]
+collision_layer = 8
+collision_mask = 3
+
+[node name="collision" type="CollisionShape2D" parent="hitbox" unique_id=43954659]
+position = Vector2(-10, 8)
+shape = SubResource("CircleShape2D_jlmbt")
+debug_color = Color(0.9936994, 0, 0.2336483, 0.42)
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

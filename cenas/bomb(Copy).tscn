@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c6eo64cjfmc4g"]
+
+[ext_resource type="PackedScene" uid="uid://cchlkt0yvhf7e" path="res://cenas/bomb.tscn" id="1_j0wje"]
+
+[node name="bomb" unique_id=7624596 instance=ExtResource("1_j0wje")]
