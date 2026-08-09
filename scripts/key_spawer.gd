@@ -13,7 +13,7 @@ var dados = JSON.parse_string(texto)
 func _ready() -> void:
 	door = screen_door.instantiate()
 	add_child(door)
-	door.global_position = Vector2(dados["fase_inicial"]["map01"]["door"]["x"],dados["fase_inicial"]["map01"]["door"]["y"])
+	door.global_position = Vector2(dados["fase_inicial"]["map01"]["door2"]["x"],dados["fase_inicial"]["map01"]["door2"]["y"])
 	spawer_keys()
 	
 func _process(delta: float) -> void:
