@@ -6,12 +6,16 @@ extends CharacterBody2D
 const SPEED = 230
 const JUMP_VELOCITY = -800
 
+var arquivos = FileAccess.open("res://Dados/keypositions.json",FileAccess.READ)
+var texto = arquivos.get_as_text()
+var dados = JSON.parse_string(texto)
 var anim_atual = "idle"
 var is_dashing = false
 var dash_able = true
 var your_direction
 
 func _ready() -> void:
+	global_position = Vector2(dados["fase_inicial"]["map01"]["door1"]["x"],dados["fase_inicial"]["map01"]["door1"]["y"])
 	z_index += 1
 	
 func dash():
