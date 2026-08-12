@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = "keys: {collected}/{total}".format({"total": valores.total_keys, "collected": valores.collected_keys })
 	if valores.collected_keys ==valores.total_keys:
 		set("theme_override_colors/font_color",Color.YELLOW)

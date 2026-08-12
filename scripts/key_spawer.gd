@@ -16,7 +16,7 @@ func _ready() -> void:
 	door.global_position = Vector2(dados["fase_inicial"]["map01"]["door2"]["x"],dados["fase_inicial"]["map01"]["door2"]["y"])
 	spawer_keys()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if collected_keys == total_keys:
 		door.open()
 		completed.completed()

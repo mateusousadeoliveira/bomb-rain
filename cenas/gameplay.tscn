@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckfgyadjsyov6"]
 
 [ext_resource type="PackedScene" uid="uid://bb63xrhm7cgwm" path="res://cenas/player.tscn" id="1_5a8f5"]
+[ext_resource type="Script" uid="uid://708qkck6hxll" path="res://scripts/gameplay.gd" id="1_oilgw"]
 [ext_resource type="PackedScene" uid="uid://xtshabrqsnqb" path="res://cenas/ui.tscn" id="2_ols4k"]
 [ext_resource type="Script" uid="uid://bsse36ylr2ore" path="res://scripts/bomb_spawer.gd" id="3_ols4k"]
 [ext_resource type="PackedScene" uid="uid://cepo33sqcwrfn" path="res://cenas/mapa.tscn" id="4_6s4cc"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctla6u83y8cj8" path="res://cenas/hud.tscn" id="8_xfvhf"]
 
 [node name="gameplay" type="Node2D" unique_id=1944030159]
+script = ExtResource("1_oilgw")
 
 [node name="player" parent="." unique_id=995858729 instance=ExtResource("1_5a8f5")]
 position = Vector2(576, 147)
