@@ -19,6 +19,10 @@ run/main_scene="res://cenas/gameplay.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+global="*uid://ts0j24sgq3ul"
+
 [display]
 
 window/size/mode=3

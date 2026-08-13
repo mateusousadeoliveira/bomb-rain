@@ -15,7 +15,7 @@ var dash_able = true
 var your_direction
 
 func _ready() -> void:
-	global_position = Vector2(dados["fase_inicial"]["map01"]["door1"]["x"],dados["fase_inicial"]["map01"]["door1"]["y"])
+	global_position = Vector2(dados["fase_inicial"]["level01"]["door1"]["x"],dados["fase_inicial"]["level01"]["door1"]["y"])
 	z_index += 1
 	
 func dash():

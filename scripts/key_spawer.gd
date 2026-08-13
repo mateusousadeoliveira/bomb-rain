@@ -17,9 +17,10 @@ func _ready() -> void:
 	door_2 = screen_door.instantiate()
 	add_child(door_1)
 	add_child(door_2)
-	door_1.global_position = Vector2(dados["fase_inicial"]["map01"]["door1"]["x"],dados["fase_inicial"]["map01"]["door1"]["y"])
-	door_2.global_position = Vector2(dados["fase_inicial"]["map01"]["door2"]["x"],dados["fase_inicial"]["map01"]["door2"]["y"])
+	door_1.global_position = Vector2(dados["fase_inicial"]["level01"]["door1"]["x"],dados["fase_inicial"]["level01"]["door1"]["y"])
+	door_2.global_position = Vector2(dados["fase_inicial"]["level01"]["door2"]["x"],dados["fase_inicial"]["level01"]["door2"]["y"])
 	spawer_keys()
+	
 	
 func _process(_delta: float) -> void:
 	if collected_keys == total_keys:
@@ -27,8 +28,9 @@ func _process(_delta: float) -> void:
 		completed.completed()
 	
 func spawer_keys():
+	collected_keys = 0
 	for i in range(0,3):
 		var key = screen_key.instantiate()
 		add_child(key)
-		key.global_position = Vector2(dados["fase_inicial"]["map01"]["keys"][i]["x"],dados["fase_inicial"]["map01"]["keys"][i]["y"])
+		key.global_position = Vector2(dados["fase_inicial"]["level0{level}".format({"level":global.actual_level})]["keys"][i]["x"],dados["fase_inicial"]["level0{level}".format({"level":global.actual_level})]["keys"][i]["y"])
 		print(i)
