@@ -11,4 +11,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		get_parent().collected_keys += 1
 		print(get_parent().collected_keys)
-		queue_redraw()
+		queue_free()

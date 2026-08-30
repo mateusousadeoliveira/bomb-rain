@@ -13,6 +13,7 @@ var anim_atual = "idle"
 var is_dashing = false
 var dash_able = true
 var your_direction
+var teletransportar = false
 
 func _ready() -> void:
 	global_position = Vector2(dados["fase_inicial"]["level01"]["door1"]["x"],dados["fase_inicial"]["level01"]["door1"]["y"])
@@ -30,6 +31,7 @@ func animation(anim):
 	anime.play(anim)
 
 func _physics_process(delta: float) -> void:
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 2
 
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction and not is_dashing:
+	if direction and not is_dashing and teletransportar == false:
 		if direction != 0:
 			your_direction = direction
 		animation("run")
@@ -62,5 +64,21 @@ func _physics_process(delta: float) -> void:
 				await get_tree().create_timer(0.05).timeout
 	if is_dashing:
 		velocity.x = move_toward(velocity.x,1000 * your_direction,25000 * delta)
-					
 	move_and_slide()
+
+
+func position_return():
+	teletransportar = true
+	await get_tree().create_timer(0.5).timeout
+	
+	var reload_files = FileAccess.open("res://Dados/keypositions.json", FileAccess.READ)
+	var updates_dates = JSON.parse_string(reload_files.get_as_text())
+	var level = "level0{level}".format({"level":global.actual_level})
+	var targed_x = updates_dates["fase_inicial"][level]["door1"]["x"]
+	var targed_y = updates_dates["fase_inicial"][level]["door1"]["y"]
+	global_position = Vector2(targed_x,targed_y)
+	reset_physics_interpolation()
+	velocity = Vector2.ZERO
+	teletransportar = false
+	return
+	

@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var screen_key = preload("res://cenas/key.tscn")
 @onready var screen_door = preload("res://cenas/door.tscn")
-@onready var completed = get_parent().get_node("hud").get_node("completed")
+@onready var hud = get_parent().get_node("hud")
+@onready var completed = hud.get_node("completed")
 
 var door_1
 var door_2
@@ -31,6 +32,6 @@ func spawer_keys():
 	collected_keys = 0
 	for i in range(0,3):
 		var key = screen_key.instantiate()
-		add_child(key)
+		add_child.call_deferred(key)
 		key.global_position = Vector2(dados["fase_inicial"]["level0{level}".format({"level":global.actual_level})]["keys"][i]["x"],dados["fase_inicial"]["level0{level}".format({"level":global.actual_level})]["keys"][i]["y"])
 		print(i)
