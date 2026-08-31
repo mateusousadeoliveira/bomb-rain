@@ -5,7 +5,6 @@ uniform float width : hint_range(0.0, 10.0) = 1.0;
 
 void vertex() {
     VERTEX += sign(VERTEX) * width;
-
 }
 
 void fragment() {
@@ -19,6 +18,9 @@ void fragment() {
     max_alpha = max(max_alpha, texture(TEXTURE, UV + vec2(0.0, -size.y)).a);
     
     vec4 original_color = texture(TEXTURE, UV);
+    
     vec3 final_rgb = mix(color.rgb, original_color.rgb, original_color.a);
-
-
+    
+    float final_alpha = max_alpha;
+    COLOR = vec4(final_rgb, final_alpha);
+}
