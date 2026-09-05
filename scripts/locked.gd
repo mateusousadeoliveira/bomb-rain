@@ -8,9 +8,10 @@ func play_animation():
 		return
 	is_playing_animation = true
 	
+	
 	var tween_fade_in = create_tween()
 	tween_fade_in.tween_property(self,"modulate:a",1,0.35)
-	await tween_fade_in.finished
+	#await tween_fade_in.finished
 	
 	play("unlocked")
 	
@@ -19,6 +20,7 @@ func play_animation():
 	tween_fade_out.tween_property(self,"modulate:a",0,0.35)
 	await tween_fade_out.finished
 	is_playing_animation = false
+	stop()
 	
 func _ready() -> void:
 	modulate.a = 0.0

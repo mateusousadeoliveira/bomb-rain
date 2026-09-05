@@ -13,6 +13,7 @@ func open():
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "hitbox" and is_open == true:
 		print("finished")
+		global.already_completed = false
 		area.get_parent().position_return()
 		global.actual_level += 1
 		key_spawer.spawer_keys()
