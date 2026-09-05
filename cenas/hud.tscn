@@ -308,6 +308,7 @@ text = "open door!"
 script = ExtResource("6_345sl")
 
 [node name="preto" type="Container" parent="." unique_id=795736093 groups=["preto"]]
+visible = false
 z_index = 2
 z_as_relative = false
 offset_left = -4.0

@@ -1,10 +1,12 @@
 extends AnimatedSprite2D
 
-
+var is_playing_animation = false
 
 # Called when the node enters the scene tree for the first time.
 func play_animation():
-	visible = true
+	if is_playing_animation:
+		return
+	is_playing_animation = true
 	
 	var tween_fade_in = create_tween()
 	tween_fade_in.tween_property(self,"modulate:a",1,0.35)
@@ -16,6 +18,7 @@ func play_animation():
 	var tween_fade_out = create_tween()
 	tween_fade_out.tween_property(self,"modulate:a",0,0.35)
 	await tween_fade_out.finished
+	is_playing_animation = false
 	
 func _ready() -> void:
 	modulate.a = 0.0
