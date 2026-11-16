@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://cygsh8gsxvdpf" path="res://scripts/completed_text.gd" id="6_345sl"]
 [ext_resource type="Script" uid="uid://b0ymxih1mhat0" path="res://scripts/container.gd" id="7_62m15"]
 [ext_resource type="Texture2D" uid="uid://hgrfpeuuspty" path="res://sprites/preto.png" id="8_osml6"]
+[ext_resource type="Texture2D" uid="uid://dliw8oluc742k" path="res://sprites/hud/heath_bar.png" id="11_jwk13"]
+[ext_resource type="Texture2D" uid="uid://boa5ay2jef4j" path="res://sprites/hud/game_over.png" id="12_yolvy"]
+[ext_resource type="Script" uid="uid://cycfcojnabudq" path="res://scripts/game_over.gd" id="13_oltbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_osml6"]
 shader = ExtResource("4_s3ubg")
@@ -255,19 +258,51 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3ubg"]
 bg_color = Color(0.97863555, 0, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
 border_color = Color(0, 0, 0.015686275, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwk13"]
 bg_color = Color(0.36078432, 0.7882353, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2tn7"]
+atlas = ExtResource("12_yolvy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh6m0"]
+atlas = ExtResource("12_yolvy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngslg"]
+atlas = ExtResource("12_yolvy")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1iau"]
+atlas = ExtResource("12_yolvy")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nl72b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2tn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh6m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngslg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1iau")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="hud" type="CanvasLayer" unique_id=1132983409]
 
@@ -339,10 +374,24 @@ scale = Vector2(50, 28.84375)
 texture = ExtResource("8_osml6")
 
 [node name="healthBar" type="ProgressBar" parent="." unique_id=1407647793]
-offset_right = 300.0
-offset_bottom = 60.0
+offset_left = 38.0
+offset_top = 44.0
+offset_right = 184.0
+offset_bottom = 99.0
 theme_override_styles/background = SubResource("StyleBoxFlat_s3ubg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jwk13")
-step = 1.0
-value = 50.0
+value = 100.0
 show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="healthBar" unique_id=416657377]
+position = Vector2(73.50001, 27.499996)
+scale = Vector2(4.9062505, 3.9375)
+texture = ExtResource("11_jwk13")
+
+[node name="gameOver" type="AnimatedSprite2D" parent="." unique_id=2134500622]
+position = Vector2(577.00006, -165)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_nl72b")
+autoplay = "default"
+frame_progress = 0.18913954
+script = ExtResource("13_oltbb")

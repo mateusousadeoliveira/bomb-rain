@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgwj48mxuh4o0" path="res://sprites/UI/next_button_press.png" id="6_1nkvp"]
 
 [node name="UI" type="Node2D" unique_id=1726473041]
+visible = false
 
 [node name="esquerda" type="TouchScreenButton" parent="." unique_id=214598884]
 position = Vector2(15, 500)

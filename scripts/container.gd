@@ -13,3 +13,8 @@ func translition():
 	var fade_out = create_tween()
 	fade_out.tween_property(self,"modulate:a",0,0.5)
 	await fade_out.finished
+
+func _physics_process(_delta: float) -> void:
+	if !global.is_live:
+		var fade_in = create_tween()
+		fade_in.tween_property(self,"modulate:a",0.5,0.5)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var shader = preload("res://cenas/ghost.tscn")
 @onready var health_bar = get_parent().get_node("hud/healthBar")
 
+
 const SPEED = 230
 const JUMP_VELOCITY = -800
 
@@ -21,6 +22,8 @@ var health = 3
 func _ready() -> void:
 	global_position = Vector2(dados["fase_inicial"]["level01"]["door1"]["x"],dados["fase_inicial"]["level01"]["door1"]["y"])
 	z_index += 1
+	health_bar.value = health
+	health_bar.max_value = health
 	
 func dash():
 	is_dashing = true
@@ -38,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 2
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and health > 0:
 		velocity.y = JUMP_VELOCITY
 
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -87,4 +90,6 @@ func position_return():
 func take_damage():
 	health -= 1
 	var bar_change = create_tween()
-	bar_change.tween_property(health_bar, "value", health_bar.value - 10, 0.1)
+	bar_change.tween_property(health_bar, "value", health, 0.1)
+	if (health <= 0):
+		global.is_live = false
