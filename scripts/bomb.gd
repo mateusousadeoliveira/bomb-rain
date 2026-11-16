@@ -22,3 +22,5 @@ func _on_hitbox_body_entered(_body: Node2D) -> void:
 	get_parent().add_child(explosao)
 	explosao.explodir()
 	queue_free()
+	if _body.name == "player":
+		_body.take_damage()

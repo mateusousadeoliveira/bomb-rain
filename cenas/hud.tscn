@@ -253,6 +253,22 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3ubg"]
+bg_color = Color(0.97863555, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0.015686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwk13"]
+bg_color = Color(0.36078432, 0.7882353, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
 [node name="hud" type="CanvasLayer" unique_id=1132983409]
 
 [node name="Label" type="Label" parent="." unique_id=88348719]
@@ -321,3 +337,12 @@ script = ExtResource("7_62m15")
 position = Vector2(545.00006, 305)
 scale = Vector2(50, 28.84375)
 texture = ExtResource("8_osml6")
+
+[node name="healthBar" type="ProgressBar" parent="." unique_id=1407647793]
+offset_right = 300.0
+offset_bottom = 60.0
+theme_override_styles/background = SubResource("StyleBoxFlat_s3ubg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jwk13")
+step = 1.0
+value = 50.0
+show_percentage = false

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anime = $anime as AnimatedSprite2D
 @onready var shader = preload("res://cenas/ghost.tscn")
+@onready var health_bar = get_parent().get_node("hud/healthBar")
 
 const SPEED = 230
 const JUMP_VELOCITY = -800
@@ -14,6 +15,8 @@ var is_dashing = false
 var dash_able = true
 var your_direction
 var teletransportar = false
+var health = 3
+
 
 func _ready() -> void:
 	global_position = Vector2(dados["fase_inicial"]["level01"]["door1"]["x"],dados["fase_inicial"]["level01"]["door1"]["y"])
@@ -39,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction and not is_dashing and teletransportar == false:
+	if direction and not is_dashing and teletransportar == false and health > 0:
 		if direction != 0:
 			your_direction = direction
 		animation("run")
@@ -66,7 +69,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x,1000 * your_direction,25000 * delta)
 	move_and_slide()
 
-
 func position_return():
 	teletransportar = true
 	await get_tree().create_timer(0.5).timeout
@@ -82,3 +84,7 @@ func position_return():
 	teletransportar = false
 	return
 	
+func take_damage():
+	health -= 1
+	var bar_change = create_tween()
+	bar_change.tween_property(health_bar, "value", health_bar.value - 10, 0.1)
