@@ -119,8 +119,10 @@ position = Vector2(-12.5, 12.5)
 shape = SubResource("RectangleShape2D_gonb2")
 
 [node name="camera" type="Camera2D" parent="." unique_id=558703350]
+position = Vector2(103.75, 98.75)
 offset = Vector2(0, -200)
 zoom = Vector2(0.8, 0.8)
+limit_bottom = 2000
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1501186307]
 

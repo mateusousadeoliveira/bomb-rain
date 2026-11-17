@@ -14,7 +14,7 @@ var dados = JSON.parse_string(texto)
 var anim_atual = "idle"
 var is_dashing = false
 var dash_able = true
-var your_direction
+var your_direction = 1
 var teletransportar = false
 var health = 3
 

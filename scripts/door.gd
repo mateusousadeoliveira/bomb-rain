@@ -17,6 +17,7 @@ func _on_area_entered(area: Area2D) -> void:
 		area.get_parent().position_return()
 		global.actual_level += 1
 		key_spawer.spawer_keys()
+		key_spawer.spawer_doors()
 		level_manager.next_level()
 		preto.translition()
 		

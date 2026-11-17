@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dliw8oluc742k" path="res://sprites/hud/heath_bar.png" id="11_jwk13"]
 [ext_resource type="Texture2D" uid="uid://boa5ay2jef4j" path="res://sprites/hud/game_over.png" id="12_yolvy"]
 [ext_resource type="Script" uid="uid://cycfcojnabudq" path="res://scripts/game_over.gd" id="13_oltbb"]
+[ext_resource type="Script" uid="uid://dkupmmay5w2wa" path="res://scripts/button.gd" id="14_oltbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_osml6"]
 shader = ExtResource("4_s3ubg")
@@ -395,3 +396,15 @@ sprite_frames = SubResource("SpriteFrames_nl72b")
 autoplay = "default"
 frame_progress = 0.18913954
 script = ExtResource("13_oltbb")
+
+[node name="Button" type="Button" parent="." unique_id=1195099177]
+visible = false
+offset_left = 458.0
+offset_top = 359.0
+offset_right = 504.0
+offset_bottom = 390.0
+scale = Vector2(5, 3)
+text = "retry"
+script = ExtResource("14_oltbb")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
